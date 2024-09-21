@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Pipeline Prod
+
+# Controls when the workflow will run
+on:
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+    environment: Prod
+    
+    steps:
+      - name: Print URL
+        run: echo "Teste ${{ vars.URL }}"
+      - name: Print Senha
+        run: echo "Teste ${{secrets.senha}}"
+        
